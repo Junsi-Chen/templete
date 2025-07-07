@@ -10,7 +10,7 @@ import { post } from "@/net";
 const authStore = useAuthStore();
 // 需要埋点的按钮
 const handleTest = async () => {
-  const res: any = await post(
+  const res = await post(
     "http://192.168.3.154:9999/api/auth/token/login",
     {
       loginType: "PASSWORD",

@@ -56,7 +56,7 @@ function handleErrnoNotZero(errObj: ErrorType) {
 const BASE_URL = import.meta.env.VITE_BASE_API || "";
 
 // 真正的请求
-function fetch(options: RequestOptions) {
+function fetch(options: RequestOptions): Promise<ResponseData> {
   // 加载
   if (options.loading) {
     uni.showLoading({
@@ -98,7 +98,7 @@ function fetch(options: RequestOptions) {
         // 手机系统
         "app-system": uni.getSystemInfoSync().system + "",
         // 令牌
-        "Authorization": uni.getStorageSync("Authorization") || "",
+        Authorization: uni.getStorageSync("Authorization") || "",
       },
       method: options.method || "GET",
 
@@ -124,7 +124,7 @@ function fetch(options: RequestOptions) {
           }
         }
         // 成功就返回数据
-        resolve(res.data);
+        resolve(rData);
       },
 
       // 失败
@@ -150,7 +150,7 @@ export function post(
   loading = true,
   needToken = true,
   showMsg = true
-) {
+): Promise<ResponseData> {
   const option: RequestOptions = {
     url,
     data: params,
@@ -173,7 +173,7 @@ export function qPost(
   needToken = true,
   timeout = 10000,
   showMsg = true
-) {
+): Promise<ResponseData> {
   const option: RequestOptions = {
     url,
     data: params,
@@ -196,7 +196,7 @@ export function get(
   loading = true,
   needToken = true,
   showMsg = true
-) {
+): Promise<ResponseData> {
   const option: RequestOptions = {
     url,
     data: params,
@@ -219,7 +219,7 @@ export function qGet(
   needToken = true,
   timeout = 10000,
   showMsg = true
-) {
+): Promise<ResponseData> {
   const option: RequestOptions = {
     url,
     data: params,
