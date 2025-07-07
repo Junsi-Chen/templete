@@ -16,6 +16,26 @@
       "style": {
         "navigationBarTitleText": "首页"
       }
+    },
+    {
+      "path": "pages/error/404/index",
+      "name": "404",
+      "meta": {
+        "title": "404"
+      },
+      "style": {
+        "navigationBarTitleText": "404"
+      }
+    },
+    {
+      "path": "pages/error/500/index",
+      "name": "500",
+      "meta": {
+        "title": "500"
+      },
+      "style": {
+        "navigationBarTitleText": "500"
+      }
     }
   ],
   "globalStyle": {

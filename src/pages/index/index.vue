@@ -10,18 +10,20 @@ import { post } from "@/net";
 const authStore = useAuthStore();
 // 需要埋点的按钮
 const handleTest = async () => {
-  const res = await post(
-    "http://192.168.3.154:9999/api/auth/token/login",
-    {
-      loginType: "PASSWORD",
-      account: "admin",
-      password: "123456",
-    }
-  );
+  const res = await post("http://192.168.3.154:9999/api/auth/token/login", {
+    loginType: "PASSWORD",
+    account: "admin",
+    password: "123456",
+  });
   // 能返回来就说明登录成功
   if (res.succeed) {
     // 保存到pinia
     authStore.saveAuthorization(res.data);
+    // 获取权限信息
+    const auth = authStore.getAuthorization;
+    if (auth) {
+      console.log(auth);
+    }
     // 提示成功
     Tips.toast("登录成功");
   }
