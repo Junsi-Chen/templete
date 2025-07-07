@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "pet"; /* Project id 4960956 */
+  src: url('./iconfont.woff2?t=1751338185754') format('woff2'),
+       url('./iconfont.woff?t=1751338185754') format('woff'),
+       url('./iconfont.ttf?t=1751338185754') format('truetype');
+}
+
+.pet {
+  font-family: "pet" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pet-renzheng:before {
+  content: "\e861";
+}
+
